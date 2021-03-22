@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using VendasWebMvc.Data;
+using VendasWebMvc.Services;
 
 namespace VendasWebMvc
 {
@@ -41,6 +42,7 @@ namespace VendasWebMvc
 
             //registro do servico no sistema de injenção de independencia da aplicação
             services.AddScoped<ServicoPopularDados>();
+            services.AddScoped<ServicoVendedor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
