@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,9 +23,8 @@ namespace VendasWebMvc.Models
         { 
         }
 
-        public Vendedor(int id, string nome, string email, DateTime dataNascimento, double salarioBase, Departamento departamento)
+        public Vendedor(string nome, string email, DateTime dataNascimento, double salarioBase, Departamento departamento)
         {
-            Id = id;
             Nome = nome;
             Email = email;
             DataNascimento = dataNascimento;

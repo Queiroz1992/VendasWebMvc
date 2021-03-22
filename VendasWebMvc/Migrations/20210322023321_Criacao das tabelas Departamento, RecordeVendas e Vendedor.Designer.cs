@@ -10,8 +10,8 @@ using VendasWebMvc.Data;
 namespace VendasWebMvc.Migrations
 {
     [DbContext(typeof(VendasWebMvcContext))]
-    [Migration("20210226162147_OutrasEntidades")]
-    partial class OutrasEntidades
+    [Migration("20210322023321_Criacao das tabelas Departamento, RecordeVendas e Vendedor")]
+    partial class CriacaodastabelasDepartamentoRecordeVendaseVendedor
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

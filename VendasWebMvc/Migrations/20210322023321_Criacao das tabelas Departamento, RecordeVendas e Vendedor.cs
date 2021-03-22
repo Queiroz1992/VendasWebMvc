@@ -4,10 +4,23 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VendasWebMvc.Migrations
 {
-    public partial class OutrasEntidades : Migration
+    public partial class CriacaodastabelasDepartamentoRecordeVendaseVendedor : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Departamento",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Departamento", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Vendedor",
                 columns: table => new
@@ -71,6 +84,9 @@ namespace VendasWebMvc.Migrations
 
             migrationBuilder.DropTable(
                 name: "Vendedor");
+
+            migrationBuilder.DropTable(
+                name: "Departamento");
         }
     }
 }

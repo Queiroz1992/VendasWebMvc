@@ -38,14 +38,19 @@ namespace VendasWebMvc
 
             services.AddDbContext<VendasWebMvcContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("VendasWebMvcContext")));
+
+            //registro do servico no sistema de injenção de independencia da aplicação
+            services.AddScoped<ServicoPopularDados>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ServicoPopularDados servicoPopularDados)
         {
             if (env.IsDevelopment())
             {
+                //Caso esteja no perfil de desenvolvimento, vou chamar o servicoSeeding, assim vou popular minha base de dados se ela não estiver populada ainda
                 app.UseDeveloperExceptionPage();
+                servicoPopularDados.PopularDados();
             }
             else
             {

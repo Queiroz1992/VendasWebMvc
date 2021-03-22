@@ -1,6 +1,8 @@
 ﻿using System;
 using VendasWebMvc.Models.Enums;
 using System.Linq;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace VendasWebMvc.Models
 {
@@ -16,9 +18,9 @@ namespace VendasWebMvc.Models
         {
         }
 
-        public RecordeVendas(int id, DateTime data, double quantia, StatusVenda statusVenda, Vendedor vendedor)
+        public RecordeVendas(DateTime data, double quantia, StatusVenda statusVenda, Vendedor vendedor)
         {
-            Id = id;
+
             Data = data;
             Quantia = quantia;
             Status = statusVenda;
