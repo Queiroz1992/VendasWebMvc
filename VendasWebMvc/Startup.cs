@@ -43,6 +43,7 @@ namespace VendasWebMvc
             //registro do servico no sistema de injenção de independencia da aplicação
             services.AddScoped<ServicoPopularDados>();
             services.AddScoped<ServicoVendedor>();
+            services.AddScoped<ServicoDepartamento>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

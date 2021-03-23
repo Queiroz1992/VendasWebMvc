@@ -12,9 +12,15 @@ namespace VendasWebMvc.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
+
+        [Display(Name = "Data de Nascimento")]
         public DateTime DataNascimento { get; set; }
+
+        [Display(Name = "Salário Base")]
         public double SalarioBase { get; set; }
         public Departamento Departamento { get; set; }
+
+        [Display(Name = "Departamento")]
         public int DepartamentoId { get; set; }
 
         //Um vendedor possui vários recordes de vendas
