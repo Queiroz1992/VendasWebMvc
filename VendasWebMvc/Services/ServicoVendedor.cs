@@ -28,5 +28,19 @@ namespace VendasWebMvc.Services
             _context.Add(obj);
             _context.SaveChanges();
         }
+
+        public Vendedor ObertPorId(int id)
+        {
+            return _context.Vendedor.FirstOrDefault(obj => obj.Id == id);
+        }
+
+        public void Excluir(int id)
+        {
+            var obj = _context.Vendedor.Find(id);
+            _context.Vendedor.Remove(obj);
+            _context.SaveChanges();
+        }
+
+
     }
 }
