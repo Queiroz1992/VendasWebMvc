@@ -1,0 +1,39 @@
+﻿@model VendasWebMvc.Models.Vendedor
+
+@{
+    ViewData["Title"] = "Vendedor";
+}
+
+<br />
+
+<h4>@ViewData["Title"]</h4>
+
+<hr />
+
+@*O row vai garantir que essa minha div vai ocupar a largura da tela*@
+<div class="row">
+    @*Vai ocupar um terço da tela*@
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="DataNascimento" class="control-label"></label>
+                <input asp-for="DataNascimento" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="SalarioBase" class="control-label"></label>
+                <input asp-for="SalarioBase" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-success"/>
+            </div>
+        </form>
+    </div>
+</div>

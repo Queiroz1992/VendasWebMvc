@@ -49,6 +49,7 @@ namespace VendasWebMvc.Data
             _context.RecordeVendas.AddRange(r1, r2, r3, r4, r5, r6);
 
             _context.SaveChanges();
+           
         }
 
     }
