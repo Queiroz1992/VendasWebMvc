@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using VendasWebMvc.Data;
 using VendasWebMvc.Models;
 using Microsoft.EntityFrameworkCore;
+using VendasWebMvc.Services.Exceptions;
 
 namespace VendasWebMvc.Services
 {
@@ -42,6 +43,22 @@ namespace VendasWebMvc.Services
             _context.SaveChanges();
         }
 
-
+        public void Atualizar(Vendedor obj)
+        {
+            //Any serve para falar se existe um registro no banco com a condição que for colocado
+            if (!_context.Vendedor.Any(v => v.Id == obj.Id))
+            {
+                throw new NotFoundException("Id não encontrado");
+            }
+            try
+            {
+                _context.Update(obj);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException e)
+            {
+                throw new DbConcurrencyException(e.Message);
+            }
+        }
     }
 }
