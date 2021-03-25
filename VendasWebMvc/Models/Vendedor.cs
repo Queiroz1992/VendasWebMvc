@@ -11,13 +11,19 @@ namespace VendasWebMvc.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Display(Name = "Data de Nascimento")]
+        [DataType(DataType.Date)]
         public DateTime DataNascimento { get; set; }
 
         [Display(Name = "Salário Base")]
+        [DisplayFormat(DataFormatString = "{0:F2}")]
         public double SalarioBase { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public Departamento Departamento { get; set; }
 
         [Display(Name = "Departamento")]
