@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace VendasWebMvc.Models
 {
-    public class RecordeVendas
+    public class RecordeVenda
     {
         public int Id { get; set; }
         public DateTime Data { get; set; }
@@ -14,11 +14,11 @@ namespace VendasWebMvc.Models
         public StatusVenda Status { get; set; }        
         public Vendedor Vendedor { get; set; }
 
-        public RecordeVendas()
+        public RecordeVenda()
         {
         }
 
-        public RecordeVendas(DateTime data, double quantia, StatusVenda statusVenda, Vendedor vendedor)
+        public RecordeVenda(DateTime data, double quantia, StatusVenda statusVenda, Vendedor vendedor)
         {
 
             Data = data;

@@ -38,7 +38,7 @@ namespace VendasWebMvc.Models
         public int DepartamentoId { get; set; }
 
         //Um vendedor possui vários recordes de vendas
-        public ICollection<RecordeVendas> Vendas { get; set; } = new List<RecordeVendas>();
+        public ICollection<RecordeVenda> Vendas { get; set; } = new List<RecordeVenda>();
 
         public Vendedor()
         { 
@@ -53,12 +53,12 @@ namespace VendasWebMvc.Models
             Departamento = departamento;
         }
 
-        public void AdicionarVendas(RecordeVendas rv)
+        public void AdicionarVendas(RecordeVenda rv)
         {
             Vendas.Add(rv);
         }
 
-        public void RemoverVendas(RecordeVendas rv)
+        public void RemoverVendas(RecordeVenda rv)
         {
             Vendas.Remove(rv);
         }

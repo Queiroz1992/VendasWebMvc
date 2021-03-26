@@ -37,12 +37,12 @@ namespace VendasWebMvc.Data
             Vendedor v3 = new Vendedor("Luzia", "luzia@luzia.com", new DateTime(1998, 11, 09), 5000.0, d4);
             Vendedor v4 = new Vendedor("Angel", "angel@hotmail.com", new DateTime(2019, 03, 19), 500.0, d3);
 
-            RecordeVendas r1 = new RecordeVendas( new DateTime(2018, 09, 25), 1100.0, StatusVenda.Faturado, v1);
-            RecordeVendas r2 = new RecordeVendas(new DateTime(2018, 07, 10), 2000.0, StatusVenda.Pendente, v2);
-            RecordeVendas r3 = new RecordeVendas(new DateTime(2019, 11, 25), 900.0, StatusVenda.Faturado, v3);
-            RecordeVendas r4 = new RecordeVendas(new DateTime(2020, 02, 15), 200.0, StatusVenda.Cancelado, v4);
-            RecordeVendas r5 = new RecordeVendas(new DateTime(2021, 09, 25), 3000.0, StatusVenda.Faturado, v1);
-            RecordeVendas r6 = new RecordeVendas(new DateTime(2021, 12, 22), 4000.0, StatusVenda.Faturado, v3);
+            RecordeVenda r1 = new RecordeVenda( new DateTime(2018, 09, 25), 1100.0, StatusVenda.Faturado, v1);
+            RecordeVenda r2 = new RecordeVenda(new DateTime(2018, 07, 10), 2000.0, StatusVenda.Pendente, v2);
+            RecordeVenda r3 = new RecordeVenda(new DateTime(2019, 11, 25), 900.0, StatusVenda.Faturado, v3);
+            RecordeVenda r4 = new RecordeVenda(new DateTime(2020, 02, 15), 200.0, StatusVenda.Cancelado, v4);
+            RecordeVenda r5 = new RecordeVenda(new DateTime(2021, 09, 25), 3000.0, StatusVenda.Faturado, v1);
+            RecordeVenda r6 = new RecordeVenda(new DateTime(2021, 12, 22), 4000.0, StatusVenda.Faturado, v3);
 
             _context.Departamento.AddRange(d1, d2, d3, d4);
             _context.Vendedor.AddRange(v1, v2, v3, v4);
