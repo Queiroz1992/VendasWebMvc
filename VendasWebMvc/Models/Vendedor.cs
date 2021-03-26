@@ -31,10 +31,9 @@ namespace VendasWebMvc.Models
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double SalarioBase { get; set; }
 
-        [Required(ErrorMessage = "{0} Riquered")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public Departamento Departamento { get; set; }
 
+        [Required(ErrorMessage = "{0} Riquered")]
         [Display(Name = "Departamento")]
         public int DepartamentoId { get; set; }
 

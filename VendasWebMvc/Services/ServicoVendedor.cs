@@ -19,41 +19,43 @@ namespace VendasWebMvc.Services
         }
 
         //Lista que retorna todos vendedores do banco de dados
-        public List<Vendedor> ObterTodosVendedores()
+        public async Task<List<Vendedor>> ObterTodosVendedoresAsync()
         {
-            return _context.Vendedor.ToList();
+            return await _context.Vendedor.ToListAsync();
         }
 
-        public void Inserir(Vendedor obj)
+        public async Task InserirAsync(Vendedor obj)
         {
             //obj.Departamento = _context.Departamento.First();
             _context.Add(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public Vendedor ObertPorId(int id)
+        public async Task<Vendedor> ObertPorIdAsync(int id)
         {
-            return _context.Vendedor.Include(obj => obj.Departamento).FirstOrDefault(obj => obj.Id == id);
+            return await _context.Vendedor.Include(obj => obj.Departamento).FirstOrDefaultAsync(obj => obj.Id == id);
         }
 
-        public void Excluir(int id)
+        public async Task ExcluirAsync(int id)
         {
-            var obj = _context.Vendedor.Find(id);
+            var obj = await _context.Vendedor.FindAsync(id);
             _context.Vendedor.Remove(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public void Atualizar(Vendedor obj)
+        public async Task AtualizarAsync(Vendedor obj)
         {
             //Any serve para falar se existe um registro no banco com a condição que for colocado
-            if (!_context.Vendedor.Any(v => v.Id == obj.Id))
+            bool temAlgum = await _context.Vendedor.AnyAsync(v => v.Id == obj.Id);
+            
+            if (!temAlgum)
             {
                 throw new NotFoundException("Id não encontrado");
             }
             try
             {
                 _context.Update(obj);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException e)
             {
