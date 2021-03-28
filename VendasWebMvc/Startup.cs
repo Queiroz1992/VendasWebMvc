@@ -45,6 +45,7 @@ namespace VendasWebMvc
             services.AddScoped<ServicoPopularDados>();
             services.AddScoped<ServicoVendedor>();
             services.AddScoped<ServicoDepartamento>();
+            services.AddScoped<ServicoRecordeVendas>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
