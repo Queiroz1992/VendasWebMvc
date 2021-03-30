@@ -38,9 +38,19 @@ namespace VendasWebMvc.Controllers
             return View(resultado);
         }
 
-        public IActionResult PesquisaPorAgrupamento()
+        public async Task<IActionResult> BuscaPorGrupo(DateTime? Datamin, DateTime? Datamax)
         {
-            return View();
+            if (!Datamin.HasValue)
+                Datamin = new DateTime(DateTime.Now.Year, 1, 1);
+
+            if (!Datamax.HasValue)
+                Datamax = DateTime.Now;
+
+            ViewData["Datamin"] = Datamin.Value.ToString("yyyy-MM-dd");
+            ViewData["Datamax"] = Datamax.Value.ToString("yyyy-MM-dd");
+
+            var resultado = await _servicoRecordeVendas.BuscaPorDataAgrupadaAsync(Datamin, Datamax);            
+            return View(resultado);
         }
     }
 }

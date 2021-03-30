@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using VendasWebMvc.Data;
 using VendasWebMvc.Models;
+using VendasWebMvc.Services.Exceptions;
 
 namespace VendasWebMvc.Services
 {
